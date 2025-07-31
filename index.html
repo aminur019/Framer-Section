@@ -1,225 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1" name="viewport" />
-  <title>Pillars of Exceptional Living | Mindset Wealth Health</title>
-  <meta name="description" content="Explore the essential pillars that empower you to live an exceptional life" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    rel="stylesheet"
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<html lang="bn">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Hover Image Section with Custom Colors and Icons
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --primary: #6366f1;
-      --primary-dark: #4f46e5;
-      --primary-light: #818cf8;
-      --dark: #0f172a;
-      --light: #f8fafc;
-      --accent: #f59e0b;
-      --hover-gold: #b08431;
-    }
-    
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #0a0f3d 0%, #02041f 100%);
-      color: var(--light);
-      min-height: 100vh;
+   body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #040312;
       margin: 0;
-      overflow-x: hidden;
-    }
-    
-    .title-font {
-      font-family: 'Playfair Display', serif;
-    }
-    
-    /* Smooth transitions (note: opacity transition for main image will be less noticeable due to instant change) */
-    .transition-smooth {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    /* Custom scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: rgba(15, 23, 42, 0.5);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--primary);
-      border-radius: 10px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--primary-light);
-    }
-    
-    /* Gradient text */
-    .text-gradient {
-      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    
-    /* Floating animation */
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-    .floating {
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    /* Container fixed left and right with 50% width */
-    #word-list {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 50vw;
-      overflow-y: auto;
-      padding: 2rem;
-      background: rgba(15, 23, 42, 0.95);
-      border-right: 1px solid rgba(176, 132, 49, 0.3);
-      box-sizing: border-box;
-      z-index: 20;
-      scrollbar-width: thin;
-      scrollbar-color: var(--primary) transparent;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    /* Pillar items styling */
-    .pillar-item {
-      padding: 0.7rem;
-      border-radius: 1rem;
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      cursor: pointer;
-      border: 1px solid transparent;
-      color: var(--light);
-      user-select: none;
-      transition: all 0.3s ease;
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.15), rgba(176, 132, 49, 0.1));
-    }
-    
-    .pillar-item h3 {
-      font-size: 2rem;
-      font-weight: 600;
-    }
-    
-    .pillar-item .icon-container {
-      width: 3.5rem;
-      height: 3.5rem;
-      border-radius: 1rem;
-      background: rgba(79, 70, 229, 0.3);
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary-light);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-      flex-shrink: 0;
+      padding: 1rem;
     }
-    
-    .pillar-item:hover {
-      border-color: var(--hover-gold);
-      background: rgba(176, 132, 49, 0.15);
-      transform: translateY(-3px);
+    /* Override Tailwind's default background for the right panel */
+    #right-panel {
+      background-color: #040312;
     }
-    
-    .pillar-item:hover .icon-container {
-      background: rgba(176, 132, 49, 0.4);
-      color: var(--hover-gold);
-    }
-    
-    /* Right image container */
-    #image-container {
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100vh;
-      width: 50vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      z-index: 10;
-      overflow: hidden;
-    }
-    
-    #main-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* transition: opacity 0.3s ease; */ /* এই ট্রানজিশন কম কার্যকর হবে যেহেতু পরিবর্তন তাত্ক্ষণিক */
-    }
-    
-    #image-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 2rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    ul li {
       color: white;
-      z-index: 15;
+      font-weight: 600;
+      font-size: 1.125rem; /* text-lg */
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color 0.3s ease;
     }
-    
-    #image-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+    ul li:hover,
+    ul li:focus {
+      color: #b08431;
+      outline: none;
+    }
+    /* Icon color same as text */
+    ul li i {
+      min-width: 1.25rem;
+      font-size: 2rem;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    /* Image text overlay */
+    #image-text {
+      background: #060606bf;
+      color: #fff;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      padding-top: 0.5rem;
+      padding-bottom: 1.5rem;
       font-weight: 700;
-      margin-bottom: 0.5rem;
-      color: #f8fafc;
+      text-shadow: 0 0 6px rgba(0,0,0,0.7);
     }
-    
-    #image-desc {
-      font-size: 1.1rem;
-      color: #d6c17a;
-      max-width: 80%;
-    }
-    .top-title{font-size:20px}
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      #word-list,
-      #image-container {
-        position: relative;
-        width: 100%;
-        height: auto;
-      }
-      
-      #word-list {
-        padding: 1.5rem;
-        border-right: none;
-        border-bottom: 1px solid rgba(176, 132, 49, 0.3);
-      }
-      
-      #image-container {
-        height: 70vh;
-      }
-      
-      #image-title {
-        font-size: 2rem;
-      }
-      
-      #image-desc {
-        font-size: 1rem;
-      }
+    #image-subtitle {
+      font-weight: 400;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      color: #d1b86a;
+      text-shadow: 0 0 4px rgba(0,0,0,0.6);
     }
   </style>
-  <script>
+ </head>
+<script>
     // Disable right-click
     document.addEventListener("contextmenu", function(e) {
       e.preventDefault();
@@ -244,193 +90,136 @@
       }
     });
   </script>
-</head>
-<body>
-  <div class="flex flex-col md:flex-row">
-  <div id="word-list" class=" w-1/3" role="list" aria-label="Pillars of Exceptional Living">
-    <h2 class="pl-3 md:pl-6 top-title">PILLARS FOR AN EXTRAORDINARY LIFE</h2><br>
-    <div
-      data-img="Mindset.jpg"
-      data-desc="The foundation of all achievement and personal growth"
-      class="pillar-item"
-      role="listitem"
-      tabindex="0"
-    >
-      <div class="icon-container" aria-hidden="true">
-        <i class="fas fa-brain"></i>
-      </div>
-      <div>
-        <h3>Mindset</h3>
-      </div>
+ <body>
+  <section class="max-w-full w-full rounded-lg shadow-lg flex flex-col sm:mt-30 md:mt-10 md:flex-row overflow-hidden" style="max-width: 1200px;">
+   <!-- Left Part: List -->
+   <div class="md:w-1/3 border-r border-gray-700 px-6 py-8">
+    <ul aria-label="Topics list" class="divide-y divide-gray-700" role="list">
+     <li aria-describedby="desc-mindset" class="cursor-pointer py-5" data-key="mindset" role="button" tabindex="0">
+      <i aria-hidden="true" class="fas fa-brain">
+      </i>
+      Mindset
+     </li>
+     <li aria-describedby="desc-wealth" class="cursor-pointer py-5" data-key="wealth" role="button" tabindex="0">
+      <i aria-hidden="true" class="fas fa-coins">
+      </i>
+      Wealth
+     </li>
+     <li aria-describedby="desc-health" class="cursor-pointer py-5" data-key="health" role="button" tabindex="0">
+      <i aria-hidden="true" class="fas fa-heartbeat">
+      </i>
+      Health
+     </li>
+     <li aria-describedby="desc-relationships" class="cursor-pointer py-5" data-key="relationships" role="button" tabindex="0">
+      <i aria-hidden="true" class="fas fa-users">
+      </i>
+      Relationships
+     </li>
+     <li aria-describedby="desc-business" class="cursor-pointer py-5" data-key="business" role="button" tabindex="0">
+      <i aria-hidden="true" class="fas fa-briefcase">
+      </i>
+      Business
+     </li>
+     <li aria-describedby="desc-leadership" class="cursor-pointer py-5" data-key="leadership" role="button" tabindex="0">
+      <i aria-hidden="true" class="fas fa-chess-king">
+      </i>
+      Leadership
+     </li>
+     <li aria-describedby="desc-happiness" class="cursor-pointer py-5" data-key="happiness" role="button" tabindex="0">
+      <i aria-hidden="true" class="fas fa-smile">
+      </i>
+      Happiness
+     </li>
+    </ul>
+   </div>
+   <!-- Right Part: Image and Text -->
+   <div class="md:w-2/3 relative flex items-center justify-center min-h-[320px]" id="right-panel">
+    <img alt="Mindset - Develop a growth mindset to unlock your potential." class="w-full h-full object-cover transition-opacity duration-500 opacity-100" height="400" id="hover-image" src="https://www.freelancer.com/fs/download-api.php?type=contest&id=2600778&filename=Mindset.jpg" width="600"/>
+    <div aria-atomic="true" aria-live="polite" class="absolute bottom-0 left-0 w-full opacity-100 transition-opacity duration-500 bg-[#fff]" id="image-text">
+     <h2 class="text-2xl mb-1" id="image-title">
+      Mindset
+     </h2>
+     <p id="image-subtitle">
+      Develop a growth mindset to unlock your potential.
+     </p>
     </div>
-    
-    <div
-      data-img="Wealth.jpg"
-      data-desc="Financial freedom and abundance mindset strategies"
-      class="pillar-item"
-      role="listitem"
-      tabindex="0"
-    >
-      <div class="icon-container" aria-hidden="true">
-        <i class="fas fa-chart-line"></i>
-      </div>
-      <div>
-        <h3>Wealth</h3>
-      </div>
-    </div>
-    
-    <div
-      data-img="Health.jpg"
-      data-desc="Vitality and wellness for peak performance"
-      class="pillar-item"
-      role="listitem"
-      tabindex="0"
-    >
-      <div class="icon-container" aria-hidden="true">
-        <i class="fas fa-heartbeat"></i>
-      </div>
-      <div>
-        <h3>Health</h3>
-      </div>
-    </div>
-    
-    <div
-      data-img="Relationships.jpg"
-      data-desc="Building meaningful connections that matter"
-      class="pillar-item"
-      role="listitem"
-      tabindex="0"
-    >
-      <div class="icon-container" aria-hidden="true">
-        <i class="fas fa-users"></i>
-      </div>
-      <div>
-        <h3>Relationships</h3>
-      </div>
-    </div>
-    
-    <div
-      data-img="Business.jpg"
-      data-desc="Entrepreneurial success and value creation"
-      class="pillar-item"
-      role="listitem"
-      tabindex="0"
-    >
-      <div class="icon-container" aria-hidden="true">
-        <i class="fas fa-briefcase"></i>
-      </div>
-      <div>
-        <h3>Business</h3>
-      </div>
-    </div>
-    
-    <div
-      data-img="Leadership.jpg"
-      data-desc="Inspiring others and creating impact"
-      class="pillar-item"
-      role="listitem"
-      tabindex="0"
-    >
-      <div class="icon-container" aria-hidden="true">
-        <i class="fas fa-flag"></i>
-      </div>
-      <div>
-        <h3>Leadership</h3>
-      </div>
-    </div>
-    
-    <div
-      data-img="Happines.jpg"
-      data-desc="Finding joy and fulfillment in everyday life"
-      class="pillar-item"
-      role="listitem"
-      tabindex="0"
-    >
-      <div class="icon-container" aria-hidden="true">
-        <i class="fas fa-smile-beam"></i>
-      </div>
-      <div>
-        <h3>Happiness</h3>
-      </div>
-    </div>
-  </div>
-  
-  <div id="image-container" aria-live="polite" aria-atomic="true" class="w-2/3">
-    <img
-      id="main-image"
-      alt="Mindset Mastery - The foundation of all achievement and personal growth"
-      src="Mindset.jpg"
-      loading="lazy"
-      decoding="async"
-    />
-    <div id="image-caption" role="region" aria-label="Image description">
-      <h2 id="image-title" class="title-font">Mindset Mastery</h2>
-      <p id="image-desc">The foundation of all achievement and personal growth</p>
-    </div>
-  </div>
-</div>
+   </div>
+  </section>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const pillarItems = document.querySelectorAll('.pillar-item');
-      const mainImage = document.getElementById('main-image');
-      const imageTitle = document.getElementById('image-title');
-      const imageDesc = document.getElementById('image-desc');
-      
-      const defaultSrc = 'Mindset.jpg';
-      const defaultTitle = 'Mindset Mastery';
-      const defaultDesc = 'The foundation of all achievement and personal growth';
-      
-      // Preload images to ensure fast display
-      pillarItems.forEach(item => {
-        const img = new Image();
-        img.src = item.getAttribute('data-img');
-      });
-      
-      pillarItems.forEach(item => {
-        const updateImageDisplay = () => {
-          const imgSrc = item.getAttribute('data-img');
-          const title = item.querySelector('h3').textContent + (item.querySelector('h3').textContent.endsWith('ss') ? '' : ' Mastery');
-          const desc = item.getAttribute('data-desc');
-          
-          if (mainImage.src !== imgSrc) {
-            // Remove previous active styles
-            pillarItems.forEach(i => i.classList.remove('border-indigo-500', 'bg-indigo-900/20'));
-            // Add active style to current item (optional, for visual feedback)
-            item.classList.add('border-indigo-500', 'bg-indigo-900/20');
-            
-            // Instantly change image and text content
-            mainImage.src = imgSrc;
-            mainImage.alt = title + ' - ' + desc;
-            imageTitle.textContent = title;
-            imageDesc.textContent = desc;
-          }
-        };
+   const data = {
+      mindset: {
+        img: "Mindset.jpg",
+        title: "Mindset",
+        subtitle: "Develop a growth mindset to unlock your potential.",
+      },
+      wealth: {
+        img: "Wealth.jpg",
+        title: "Wealth",
+        subtitle: "Build and manage your financial resources wisely.",
+      },
+      health: {
+        img: "Health.jpg",
+        title: "Health",
+        subtitle: "Maintain physical and mental well-being.",
+      },
+      relationships: {
+        img: "Relationships.jpg",
+        title: "Relationships",
+        subtitle: "Cultivate meaningful and supportive connections.",
+      },
+      business: {
+        img: "Business.jpg",
+        title: "Business",
+        subtitle: "Grow your enterprise with smart strategies.",
+      },
+      leadership: {
+        img: "Leadership.jpg",
+        title: "Leadership",
+        subtitle: "Inspire and guide others to success.",
+      },
+      happiness: {
+        img: "Happines.jpg",
+        title: "Happiness",
+        subtitle: "Find joy and contentment in everyday life.",
+      },
+    };
 
-        item.addEventListener('mouseenter', updateImageDisplay);
-        item.addEventListener('touchstart', (e) => {
-          e.preventDefault(); // Prevent default touch behavior like scrolling
-          updateImageDisplay();
-        });
-        
-        // Accessibility for keyboard navigation
-        item.addEventListener('focus', updateImageDisplay);
-        item.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            updateImageDisplay();
-          }
-        });
+    const listItems = document.querySelectorAll("ul li");
+    const hoverImage = document.getElementById("hover-image");
+    const imageTitle = document.getElementById("image-title");
+    const imageSubtitle = document.getElementById("image-subtitle");
+    const imageText = document.getElementById("image-text");
+
+    function showData(key) {
+      if (!data[key]) return;
+      hoverImage.style.opacity = 0;
+      imageText.style.opacity = 0;
+      setTimeout(() => {
+        hoverImage.src = data[key].img;
+        hoverImage.alt = `${data[key].title} - ${data[key].subtitle}`;
+        imageTitle.textContent = data[key].title;
+        imageSubtitle.textContent = data[key].subtitle;
+        hoverImage.style.opacity = 1;
+        imageText.style.opacity = 1;
+      }, 100);
+    }
+
+    listItems.forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        showData(item.dataset.key);
       });
-      
-      // Reset to default when mouse leaves the list
-      document.getElementById('word-list').addEventListener('mouseleave', () => {
-        pillarItems.forEach(i => i.classList.remove('border-indigo-500', 'bg-indigo-900/20'));
-        mainImage.src = defaultSrc;
-        mainImage.alt = defaultTitle + ' - ' + defaultDesc;
-        imageTitle.textContent = defaultTitle;
-        imageDesc.textContent = defaultDesc;
+      item.addEventListener("focus", () => {
+        showData(item.dataset.key);
+      });
+      item.addEventListener("mouseleave", () => {
+        // On mouse leave, revert to Mindset default
+        showData("mindset");
+      });
+      item.addEventListener("blur", () => {
+        // On blur, revert to Mindset default
+        showData("mindset");
       });
     });
   </script>
-</body>
+ </body>
 </html>
