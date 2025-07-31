@@ -219,6 +219,31 @@
       }
     }
   </style>
+  <script>
+    // Disable right-click
+    document.addEventListener("contextmenu", function(e) {
+      e.preventDefault();
+    }, false);
+
+    // Disable keyboard shortcuts
+    document.addEventListener('keydown', function(e) {
+      // Ctrl+S
+      if (e.ctrlKey && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        alert('Save is disabled on this page.');
+      }
+      // Ctrl+U
+      if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+        e.preventDefault();
+        alert('View source is disabled on this page.');
+      }
+      // F12 (Dev Tools)
+      if (e.keyCode === 123) {
+        e.preventDefault();
+        alert('Developer tools are disabled.');
+      }
+    });
+  </script>
 </head>
 <body>
   <div class="flex flex-col md:flex-row">
